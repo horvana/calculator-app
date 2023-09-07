@@ -1,38 +1,110 @@
+:root {
+  --small-size: 70px;
+  --double-small-size: calc(var(--small-size) * 2 + 2px);
+
+  --primary-bg: #ffffff;      /* Background color */
+  --secondary-bg: #c6c6c6;    /* Secondary background color */
+  --button-bg: #e6e4e4;       /* Button background color */
+  --button-text: #333333;     /* Button text color */
+  --operator-bg: #ff9800;     /* Operator button background color */
+  --equals-bg: #2196F3;       /* Equals button background color */
+  --result-bg: #333333;       /* Result display background color */
+  --result-text: #ffffff;     /* Result display text color */
+  --shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Button shadow */
+  --ac-bg: #e44343;
+}
+
 .App {
   text-align: center;
+  margin: 10% auto;
+  background-color: var(--secondary-bg);
+  height: 450px;
+  width: 300px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#screen {
+  font-family: Monaco, monospace;
+  font-size: 25px;
+  width: 100%;
+  height: 80px;
+  background-color: var(--result-bg);
+  margin: 0;
+  text-align: right;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#screen p {
+  color: var(--result-text);
+  margin: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#keypad {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 0;
+}
+
+.column-left {
+  background-color: var(--secondary-bg);
+  height: 100%;
+}
+
+.column-right {
+  background-color: var(--secondary-bg);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.small {
+  height: var(--small-size);
+  width: var(--small-size);
+  background-color: var(--button-bg);
+  border: 1px solid black;
+  margin: 1px;
+  color: var(--button-text);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ac, .zero {
+  width: var(--double-small-size);
+  height: var(--small-size);
+  margin: 1px;
+  border: 1px solid black;
+  background-color: var(--ac-bg);
+  color: var(--button-text);
+}
+
+.zero {
+  background-color: var(--button-bg);
+}
+
+.equal {
+  height: var(--double-small-size);
+  width: var(--small-size);
+  border: 1px solid black;
+  background-color: var(--equals-bg);
+  color: var(--button-text);
+  margin-top: 1px;
+}
+
+.op {
+  background-color: var(--operator-bg);
+  color: var(--button-text)
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  color: var(--button-text)
 }
